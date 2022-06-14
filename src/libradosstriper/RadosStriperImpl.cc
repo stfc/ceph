@@ -1382,7 +1382,7 @@ int libradosstriper::RadosStriperImpl::openStripedObjectForRead(
   op.assert_exists();
   *lockCookie = getUUID();
   utime_t dur = utime_t();
-  rados::cls::lock::lock(&op, RADOS_LOCK_NAME, LOCK_SHARED, *lockCookie, "Tag", "", dur, 0);
+//  rados::cls::lock::lock(&op, RADOS_LOCK_NAME, LOCK_SHARED, *lockCookie, "Tag", "", dur, 0);
   std::string firstObjOid = getObjectId(soid, 0);
   int rc = m_ioCtx.operate(firstObjOid, &op);
   if (rc) {
